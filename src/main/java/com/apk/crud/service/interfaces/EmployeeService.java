@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface EmployeeService {
 
-    Employee saveEmployee(EmployeeDTO employeeDTO);
+    EmployeeDTO saveEmployee(EmployeeDTO employeeDTO);
 
-    List<Employee> fetchAllEmployees();
+    List<EmployeeDTO> fetchAllEmployees();
 
-    Employee getEmployeeById(Long id);
+    EmployeeDTO getEmployeeById(Long id);
 
-    Employee updateEmployeeById(Long id, Employee employee);
+    EmployeeDTO updateEmployeeById(Long id, EmployeeDTO employee);
 
     String deleteDepartmentById(Long id);
 }

@@ -11,11 +11,4 @@ public class EmployeeDTO {
 
     private float employeeSalary;
 
-    public Employee convertToEntity() {
-        Employee employee = new Employee();
-        employee.setEmployeeId(employeeId);
-        employee.setEmployeeName(employeeName);
-        employee.setEmployeeSalary(employeeSalary);
-        return employee;
-    }
 }
