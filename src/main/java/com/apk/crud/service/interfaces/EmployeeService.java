@@ -1,12 +1,13 @@
 package com.apk.crud.service.interfaces;
 
 import com.apk.crud.entity.Employee;
+import com.apk.crud.model.EmployeeDTO;
 
 import java.util.List;
 
 public interface EmployeeService {
 
-    Employee saveEmployee(Employee employee);
+    Employee saveEmployee(EmployeeDTO employeeDTO);
 
     List<Employee> fetchAllEmployees();
 

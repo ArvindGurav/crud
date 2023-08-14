@@ -1,6 +1,7 @@
 package com.apk.crud.service;
 
 import com.apk.crud.entity.Employee;
+import com.apk.crud.model.EmployeeDTO;
 import com.apk.crud.repository.EmployeeRepository;
 import com.apk.crud.service.interfaces.EmployeeService;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee saveEmployee(Employee employee) {
+    public Employee saveEmployee(EmployeeDTO employeeDTO) {
+        Employee employee = employeeDTO.convertToEntity();
         return employeeRepository.save(employee);
     }
 

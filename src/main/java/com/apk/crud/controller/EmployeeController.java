@@ -1,6 +1,7 @@
 package com.apk.crud.controller;
 
 import com.apk.crud.entity.Employee;
+import com.apk.crud.model.EmployeeDTO;
 import com.apk.crud.service.interfaces.EmployeeService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,8 +24,8 @@ public class EmployeeController {
 
 
     @PostMapping("/employee")
-    public Employee saveEmployee(@RequestBody Employee employee) {
-        return employeeService.saveEmployee(employee);
+    public Employee saveEmployee(@RequestBody EmployeeDTO employeeDTO) {
+        return employeeService.saveEmployee(employeeDTO);
     }
 
     @GetMapping("/employee")
