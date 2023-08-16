@@ -17,12 +17,6 @@ import static com.apk.crud.constants.ErrorMessages.EMPLOYEE_SALARY_ZERO;
 @Component
 public class EmployeeValidator {
 
-    private final EmployeeRepository employeeRepository;
-
-    public EmployeeValidator(EmployeeRepository employeeRepository) {
-        this.employeeRepository = employeeRepository;
-    }
-
 
     public void validateEmployee(EmployeeDTO employeeDTO) {
         List<APIErrors> errorsList = new ArrayList<>();
