@@ -1,6 +1,5 @@
 package com.apk.crud.model;
 
-import com.apk.crud.entity.Employee;
 import lombok.Data;
 
 @Data

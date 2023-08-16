@@ -5,6 +5,7 @@ import com.apk.crud.mapper.EmployeeMapper;
 import com.apk.crud.model.EmployeeDTO;
 import com.apk.crud.repository.EmployeeRepository;
 import com.apk.crud.service.interfaces.EmployeeService;
+import com.apk.crud.validator.EmployeeValidator;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,15 +18,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository employeeRepository;
     private final EmployeeMapper employeeMapper;
+    private final EmployeeValidator employeeValidator;
 
-    public EmployeeServiceImpl(EmployeeRepository employeeRepository, EmployeeMapper employeeMapper) {
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository, EmployeeMapper employeeMapper, EmployeeValidator employeeValidator) {
         this.employeeRepository = employeeRepository;
         this.employeeMapper = employeeMapper;
+        this.employeeValidator = employeeValidator;
     }
 
     @Override
     public EmployeeDTO saveEmployee(EmployeeDTO employeeDTO) {
         Employee employee = employeeMapper.convertToEntity(employeeDTO);
+        employeeValidator.validateEmployee(employeeDTO);
         employee = employeeRepository.save(employee);
         return employeeMapper.convertToDTO(employee);
     }
