@@ -4,6 +4,7 @@ import com.apk.crud.exceptions.EmployeeValidationException;
 import com.apk.crud.constants.ErrorCode;
 import com.apk.crud.model.APIErrors;
 import com.apk.crud.model.EmployeeDTO;
+import com.apk.crud.repository.EmployeeRepository;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +16,13 @@ import static com.apk.crud.constants.ErrorMessages.EMPLOYEE_SALARY_ZERO;
 
 @Component
 public class EmployeeValidator {
+
+    private final EmployeeRepository employeeRepository;
+
+    public EmployeeValidator(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
+
 
     public void validateEmployee(EmployeeDTO employeeDTO) {
         List<APIErrors> errorsList = new ArrayList<>();

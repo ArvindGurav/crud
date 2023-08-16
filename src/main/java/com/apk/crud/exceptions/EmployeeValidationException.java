@@ -2,6 +2,7 @@ package com.apk.crud.exceptions;
 
 import com.apk.crud.constants.ErrorCode;
 import com.apk.crud.model.APIErrors;
+import com.apk.crud.model.EmployeeDTO;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 

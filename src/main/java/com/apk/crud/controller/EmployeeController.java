@@ -1,8 +1,9 @@
 package com.apk.crud.controller;
 
-import com.apk.crud.entity.Employee;
+import com.apk.crud.model.APIResponse;
 import com.apk.crud.model.EmployeeDTO;
 import com.apk.crud.service.interfaces.EmployeeService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,27 +25,27 @@ public class EmployeeController {
 
 
     @PostMapping("/employee")
-    public EmployeeDTO saveEmployee(@RequestBody EmployeeDTO employeeDTO) {
-        return employeeService.saveEmployee(employeeDTO);
+    public ResponseEntity<APIResponse<EmployeeDTO>> saveEmployee(@RequestBody EmployeeDTO employeeDTO) {
+        return ResponseEntity.ok(APIResponse.success(employeeService.saveEmployee(employeeDTO)));
     }
 
     @GetMapping("/employee")
-    public List<EmployeeDTO> getAllEmployees() {
-        return employeeService.fetchAllEmployees();
+    public ResponseEntity<APIResponse<List<EmployeeDTO>>> getAllEmployees() {
+        return ResponseEntity.ok(APIResponse.success(employeeService.fetchAllEmployees()));
     }
 
     @GetMapping("/employee/{id}")
-    public EmployeeDTO getEmployeeById(@PathVariable("id") Long id) {
-        return employeeService.getEmployeeById(id);
+    public ResponseEntity<APIResponse<EmployeeDTO>> getEmployeeById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(APIResponse.success(employeeService.getEmployeeById(id)));
     }
 
     @PutMapping("/employee/{id}")
-    public EmployeeDTO updateEmployee(@PathVariable("id") Long id, @RequestBody EmployeeDTO employee) {
-        return employeeService.updateEmployeeById(id, employee);
+    public ResponseEntity<APIResponse<EmployeeDTO>> updateEmployee(@PathVariable("id") Long id, @RequestBody EmployeeDTO employee) {
+        return ResponseEntity.ok(APIResponse.success(employeeService.updateEmployeeById(id, employee)));
     }
 
     @DeleteMapping("/employee/{id}")
-    public String deleteEmployee(@PathVariable("id") Long id) {
-        return employeeService.deleteDepartmentById(id);
+    public ResponseEntity<APIResponse<String>> deleteEmployee(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(APIResponse.success(employeeService.deleteDepartmentById(id)));
     }
 }

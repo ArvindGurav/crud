@@ -14,7 +14,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity handleEmployeeValidationException(EmployeeValidationException ex) {
         APIResponse apiResponse = APIResponse.builder()
                 .status(APIResponse.Status.FAILURE)
-                .errorCode(ex.getErrorCode().getError())
+                .statusCode(ex.getErrorCode().getError())
                 .errorMessage(ex.getMessage())
                 .subErrors(ex.getApiErrorsList())
                 .build();

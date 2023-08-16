@@ -1,6 +1,5 @@
 package com.apk.crud.service.interfaces;
 
-import com.apk.crud.entity.Employee;
 import com.apk.crud.model.EmployeeDTO;
 
 import java.util.List;
